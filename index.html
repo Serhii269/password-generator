@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Password Generator</title>
+  <style>
+    body {
+      background-color: red;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: black;
+      padding: 50px;
+    }
+    input, button {
+      font-size: 16px;
+      padding: 10px;
+      margin: 10px;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+    }
+    .error {
+      color: darkred;
+    }
+  </style>
+</head>
+<body>
+  <h2>Password Generator</h2>
+  <form method="POST">
+    <label for="length">Enter password length:</label><br>
+    <input type="number" id="length" name="length" min="6" required><br>
+    <button type="submit">Generate Password</button>
+  </form>
+
+  {% if password %}
+    <div class="result">Generated Password: {{ password }}</div>
+  {% endif %}
+
+  {% if error %}
+    <div class="error">{{ error }}</div>
+  {% endif %}
+</body>
+</html>
